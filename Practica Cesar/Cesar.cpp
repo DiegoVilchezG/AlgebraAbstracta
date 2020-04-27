@@ -9,7 +9,7 @@ Cesar::Cesar(string a, int k) {
 
 void Cesar::cifrar() {
 	for (int i = 0; i < userinput.length(); i++) {
-		//Condicion para añadir los caracteres modificados a la string resultante y espacios (que no se cifran)
+		//Condicion para aÃ±adir los caracteres modificados a la string resultante y espacios (que no se cifran)
 		if (userinput[i] != ' ') {
 			cipher += userinput[i] + key;
 		}
@@ -29,7 +29,7 @@ void Cesar::cifrar() {
 void Cesar::descifrar() {
 
 	for (int i = 0; i < cipher.length(); i++) {
-		//Condicion para añadir los caracteres modificados a la string resultante y espacios (que no se cifran)
+		//Condicion para aÃ±adir los caracteres modificados a la string resultante y espacios (que no se cifran)
 		if (cipher[i] != ' ') {
 			decipher += cipher[i] - key;
 		}
@@ -50,7 +50,7 @@ void Cesar::descifrar() {
 void Cesar::descifrar2() {
 
 	for (int i = 0; i < userinput.length(); i++) {
-		//Condicion para añadir los caracteres modificados a la string resultante y espacios (que no se cifran)
+		//Condicion para aÃ±adir los caracteres modificados a la string resultante y espacios (que no se cifran)
 		if (userinput[i] != ' ') {
 			decipher += userinput[i] - key;
 		}
