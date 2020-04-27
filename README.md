@@ -1,3 +1,3 @@
 # Diego Nicolás Vílchez Gustavson
 
-El archivo main.cpp corresponde al Trabajo del Cifrado de Cesar
+Los Archivos docx y jpg quedaron sueltos porque no se como meterlos en carpetas despues de subirlos
