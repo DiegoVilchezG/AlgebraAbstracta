@@ -10,4 +10,5 @@ public:
 	int algoritmo4(int a, int b);
 	int algoritmo5(int a, int b);
 	int algoritmo6(int a, int b);
+	int modulo(int a, int b);
 };

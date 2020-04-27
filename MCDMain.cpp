@@ -37,5 +37,11 @@ int main() {
 	cout << "-----------------------------------------------------------------------------------------------------" << endl;
 	cout << "En el Algoritmo 6: " << endl;
 	cout << endl << "MCD tras algoritmo 6: " << tarea6.algoritmo6(tarea6.a, tarea6.b);
+	cout << endl;
+	cout << endl;
 	cout << "-----------------------------------------------------------------------------------------------------" << endl;
+
+	cout << endl;
+	cout << endl;
+	cout << "A partir de la cantidad de vueltas, concluimos que el Algoritmo 2 es el mas eficiente, ya que es el que menos vueltas da" << endl;
 }

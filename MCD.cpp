@@ -11,6 +11,11 @@ MCD::MCD(int _a, int _b) {
 	vueltas = 0;
 }
 
+int MCD::modulo(int a, int b) {
+	r = (-1 * ((a / b) * b)) + a;
+	return r;
+}
+
 int MCD::algoritmo1() {
 	cout << "En el algoritmo 1: "<<endl;;
 	while (r != 0) {
@@ -18,7 +23,7 @@ int MCD::algoritmo1() {
 		cout << "A = " << a <<endl;
 		cout << "B = " << b << endl;
 		cout << "Q = " << a/b << endl;
-		r = a % b;
+		r = modulo(a,b);
 		cout << "R = " << r << endl;
 		cout << "Vueltas: " << vueltas << endl;
 		if (r == 0) {
@@ -38,7 +43,7 @@ int MCD::algoritmo2() {
 		cout << "A = " << a << endl;
 		cout << "B = " << b << endl;
 		cout << "Q = " << a / b << endl;
-		r = a % b;
+		r = modulo(a,b);
 		cout << "R = " << r << endl;
 		cout << "Vueltas: " << vueltas << endl;
 		if (r == 0) {
@@ -62,11 +67,11 @@ int MCD::algoritmo3(int a, int b) {
 		cout << "A = " << a << endl;
 		cout << "B = " << b << endl;
 		cout << "Q = " << a / b << endl;
-		cout << "R = " << a % b << endl;
+		cout << "R = " << modulo(a,b) << endl;
 	}
 	vueltas++;
 	cout << "Vueltas: " << vueltas << endl;
-	return algoritmo3(b, a % b);
+	return algoritmo3(b, modulo(a,b));
 }
 
 int MCD::algoritmo4(int a, int b) {
@@ -82,19 +87,19 @@ int MCD::algoritmo4(int a, int b) {
 		cout << "A = " << a << endl;
 		cout << "B = " << b << endl;
 		cout << "Q = " << a / b << endl;
-		cout << "R = " << a % b << endl;
+		cout << "R = " << modulo(a,b) << endl;
 	}
 
 	vueltas++;
 	cout << "Vueltas: " << vueltas << endl;
 
-	if (a % 2 == 0 && b % 2 == 0) {
+	if (modulo(a,2) == 0 && modulo(b,2) == 0) {
 		return 2 * (algoritmo4(a / 2, b / 2));
 	}
-	else if (a % 2 == 0 && b % 2 == 1) {
+	else if (modulo(a,2) == 0 && modulo(b,2) == 1) {
 		return algoritmo4(a/2,b);
 	}
-	else if (a % 2 == 1 && b % 2 == 0) {
+	else if (modulo(a,2) == 1 && modulo(b,2) == 0) {
 		return algoritmo4(a, b/2);
 	}
 	else {
@@ -109,15 +114,15 @@ int MCD::algoritmo5(int a, int b) {
 	cout << "A = " << a << endl;
 	cout << "B = " << b << endl;
 	cout << "Q = " << a / b << endl;
-	cout << "R = " << a % b << endl;
+	cout << "R = " << modulo(a,b) << endl;
 	cout << "Vueltas: " << vueltas << endl;
 
-	while (a % 2 == 0 && b % 2 == 0){
+	while (modulo(a,2) == 0 && modulo(b,2) == 0){
 		vueltas++;
 		cout << "A = " << a << endl;
 		cout << "B = " << b << endl;
 		cout << "Q = " << a / b << endl;
-		cout << "R = " << a % b << endl;
+		cout << "R = " << modulo(a,b) << endl;
 		cout << "Vueltas: " << vueltas << endl;
 		a = a / 2;
 		b = b / 2;
@@ -127,14 +132,14 @@ int MCD::algoritmo5(int a, int b) {
 		cout << "A = " << a << endl;
 		cout << "B = " << b << endl;
 		cout << "Q = " << a / b << endl;
-		cout << "R = " << a % b << endl;
+		cout << "R = " << modulo(a,b) << endl;
 		vueltas++;
 		cout << "Vueltas: " << vueltas << endl;
 
-		while (a % 2 == 0) {
+		while (modulo(a,2) == 0) {
 			a = a / 2;
 		}
-		while (b % 2 == 0) {
+		while (modulo(b,2) == 0) {
 			b = b / 2;
 		}
 		int t = abs(a - b) / 2;
@@ -154,7 +159,7 @@ int MCD::algoritmo6(int a, int b) {
 	cout << "A = " << a << endl;
 	cout << "B = " << b << endl;
 	cout << "Q = " << a / b << endl;
-	cout << "R = " << a % b << endl;
+	cout << "R = " << modulo(a,b) << endl;
 	vueltas++;
 	cout << "Vueltas: " << vueltas << endl;
 	
@@ -162,7 +167,7 @@ int MCD::algoritmo6(int a, int b) {
 		cout << "A = " << a << endl;
 		cout << "B = " << b << endl;
 		cout << "Q = " << a / b << endl;
-		cout << "R = " << a % b << endl;
+		cout << "R = " << modulo(a,b) << endl;
 		vueltas++;
 		cout << "Vueltas: " << vueltas << endl;
 		if (a > b) {
