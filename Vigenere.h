@@ -1,12 +1,17 @@
 #pragma once
-#include <string>
+
+#include <iostream>
 
 using namespace std;
 
-class Vigenere {
+class Vigenere
+{
+private:
+    string clave;
 public:
-	Vigenere(string a);
-	string cifrar(string &k, string s);
-	string descifrar(string k, string s);
-	string alfabeto;
+    string alfabeto;
+    Vigenere(string, string);
+    string Extension(string);
+    string cifrar(string);
+    string descifrar(string);
 };

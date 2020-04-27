@@ -1,65 +1,44 @@
 #include "Vigenere.h"
-#include <iostream>
-#include <string>
 
-using namespace std;
-
-Vigenere::Vigenere(string a) {
-	alfabeto = a;
+Vigenere::Vigenere(string _clave, string _alfabeto)
+{
+    clave = _clave;
+    alfabeto = _alfabeto;
 }
 
-string Vigenere::cifrar(string &k, string s) {
-	string temp;
-	int counter = 1;
-
-	if (k.length() >= s.length()) {
-		return "La clave debe ser mas corta que el mensaje";
-	}
-
-	for (int i = 0; i < s.length()-(s.length()%k.length()); i++) {
-		int j = i;
-		if (j >= k.length()) {
-			j = j - (k.length() * counter);
-			counter++;
-		}
-		k += k[j];
-	}
-	for (int i = 0; i < s.length(); i++) {
-		int j = i;
-		size_t s1 = alfabeto.find(s[i]);
-		size_t k1 = alfabeto.find(k[i]);
-		int z = s1 + k1;
-		if (z > alfabeto.length()) {
-			z -= alfabeto.length();
-		}
-		temp += alfabeto[z];
-	}
-
-	return temp;
+string Vigenere::Extension(string mensaje) {
+    string NewClave;
+    for (int i = 0; i < mensaje.length(); i++) {
+        int a = i % clave.length();
+        NewClave += clave[a];
+    }
+    return NewClave;
 }
 
-string Vigenere::descifrar(string k, string s) {
-	string temp;
-	int counter = 1;
-	for (int i = 0; i < s.length() - (s.length() % k.length()); i++) {
-		int j = i;
-		if (j >= k.length()) {
-			j = j - (k.length() * counter);
-			counter++;
-		}
-		k += k[j];
-	}
+string Vigenere::cifrar(string mensaje) {
+    string mensajeCifrado;
+    string claveN = Extension(mensaje);
+    for (int i = 0; i < mensaje.length(); i++) {
+        int posicionM = alfabeto.find(mensaje[i]);
+        int posicionC = alfabeto.find(claveN[i]);
+        int posicion = posicionM + posicionC;
+        if (posicion < alfabeto.length())
+            mensajeCifrado += alfabeto[posicion];
+        else { mensajeCifrado += alfabeto[posicion - alfabeto.length()]; }
+    }
+    return mensajeCifrado;
+}
 
-	for (int i = 0; i < s.length(); i++) {
-		int j = i;
-		size_t s1 = alfabeto.find(s[i]);
-		size_t k1 = alfabeto.find(k[i]);
-		int z = s1 - k1;
-		if (z < 0) {
-			z += alfabeto.length();
-		}
-		temp += alfabeto[z];
-	}
-
-	return temp;
+string Vigenere::descifrar(string mensaje) {
+    string mensajeDescifrado;
+    string claveN = Extension(mensaje);
+    for (int i = 0; i < mensaje.length(); i++) {
+        int posicionM = alfabeto.find(mensaje[i]);
+        int posicionC = alfabeto.find(claveN[i]);
+        int posicion = posicionM - posicionC;
+        if (posicion >= 0)
+            mensajeDescifrado += alfabeto[posicion];
+        else { mensajeDescifrado += alfabeto[posicion + alfabeto.length()]; }
+    }
+    return mensajeDescifrado;
 }
