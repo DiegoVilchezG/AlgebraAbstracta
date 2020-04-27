@@ -2,7 +2,7 @@
 
 Kasiski::Kasiski(string a)
 {
-    alfabeto = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    alfabeto = "ABCDEFGHIJKLMNÃ‘OPQRSTUVWXYZ";
     clave = "";
     mensaje = a;
     i = 0;
